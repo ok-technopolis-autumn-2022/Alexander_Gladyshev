@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoApp</title>
+</head>
+<body>
+<main class="todos">
+    <header>
+        <h1>todos</h1>
+    </header>
+    <div class="todo-content">
+        <section class="top-menu">
+            <input type="button" id="select-all" value=&dArr;>
+            <label for="add-new-todo"></label>
+            <input type="text" id="add-new-todo" placeholder="What needs to be done?">
+        </section>
+        <section class="task-list">
+            <ul>
+                <li class="task">
+                    <label>
+                        <input type="checkbox" class="done-or-not">
+                        <span class="todo-text">HTML</span>
+                    </label>
+                    <input type="button" value=&#215; class="delete-todo">
+                </li>
+                <li class="task">
+                    <label>
+                        <input type="checkbox" class="done-or-not">
+                        <span class="todo-text">CSS</span>
+                    </label>
+                    <input type="button" value=&#215; class="delete-todo">
+                </li>
+                <li class="task">
+                    <label>
+                        <input type="checkbox" class="done-or-not">
+                        <span class="todo-text">JS</span>
+                    </label>
+                    <input type="button" value=&#215; class="delete-todo">
+                </li>
+                <li class="task">
+                    <label>
+                        <input type="checkbox" class="done-or-not">
+                        <span class="todo-text">JS tools</span>
+                    </label>
+                    <input type="button" value=&#215; class="delete-todo">
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <span class="tasks-left">3 items left</span>
+            <span class="task-selection">
+                <input type="radio" name="selector" id="display-all" value="All">
+                <label for="display-all">All</label>
+                <input type="radio" name="selector" id="display-active" value="All">
+                <label for="display-active">Active</label>
+                <input type="radio" name="selector" id="display-completed" value="All">
+                <label for="display-completed">Completed</label>
+            </span>
+            <input type="button" id="clear-completed-button" value="Clear completed">
+        </footer>
+    </div>
+</main>
+</body>
+</html>
