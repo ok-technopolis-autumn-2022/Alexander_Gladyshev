@@ -6,59 +6,59 @@
 </head>
 <body>
 <div class="todos">
-    <header role="banner">
+    <header role="banner" aria-label="todo title: todos">
         <h1>todos</h1>
     </header>
     <main class="todo-content">
         <section class="top-menu">
-            <input type="button" id="select-all" aria-label="Select all tasks">
+            <input type="button" title="Select all tasks">
             <input type="text" placeholder="What needs to be done?" aria-label="Add task to do">
         </section>
         <section class="task-list">
             <ul>
-                <li class="task-item" role="listitem">
+                <li class="task-item" role="listitem" aria-label="todo task">
                     <div class="task-item_view">
                         <label>
                             <input type="checkbox" class="done-or-not" aria-label="Completed task: HTML">
                             <span class="todo-text">HTML</span>
                         </label>
-                        <input type="button" class="delete-todo" aria-label="Delete task: HTML">
+                        <input type="button" class="delete-todo" title="Delete task: HTML">
                     </div>
                     <div class="task-item_edit" hidden="hidden">
                         <input type="text" class="task-item_input" value="HTML" aria-label="Edit task: HTML">
                     </div>
                 </li>
-                <li class="task-item" role="listitem">
+                <li class="task-item" role="listitem" aria-label="todo task">
                     <div class="task-item_view">
                         <label>
                             <input type="checkbox" class="done-or-not" aria-label="Completed task: CSS">
                             <span class="todo-text">CSS</span>
                         </label>
-                        <input type="button" class="delete-todo" aria-label="Delete task: CSS">
+                        <input type="button" class="delete-todo" title="Delete task: CSS">
                     </div>
                     <div class="task-item_edit" hidden="hidden">
                         <input type="text" class="task-item_input" value="CSS" aria-label="Edit task: CSS">
                     </div>
                 </li>
-                <li class="task-item" role="listitem">
+                <li class="task-item" role="listitem" aria-label="todo task">
                     <div class="task-item_view">
                         <label>
                             <input type="checkbox" class="done-or-not" aria-label="Completed task: JS">
                             <span class="todo-text">JS</span>
                         </label>
-                        <input type="button" class="delete-todo" aria-label="Delete task: JS">
+                        <input type="button" class="delete-todo" title="Delete task: JS">
                     </div>
                     <div class="task-item_edit" hidden="hidden">
                         <input type="text" class="task-item_input" value="JS" aria-label="Edit task: JS">
                     </div>
                 </li>
-                <li class="task-item" role="listitem">
+                <li class="task-item" role="listitem" aria-label="todo task">
                     <div class="task-item_view">
                         <label>
                             <input type="checkbox" class="done-or-not" aria-label="Completed task: JS tools">
                             <span class="todo-text">JS tools</span>
                         </label>
-                        <input type="button" class="delete-todo" aria-label="Delete task: JS tools">
+                        <input type="button" class="delete-todo" title="Delete task: JS tools">
                     </div>
                     <div class="task-item_edit" hidden="hidden">
                         <input type="text" class="task-item_input" value="JS tools" aria-label="Edit task: JS tools">
@@ -68,7 +68,7 @@
         </section>
         <footer>
             <span class="tasks-left">3 items left</span>
-            <span class="task-selection" role="radio">
+            <span class="task-selection" role="radiogroup" aria-label="task filter">
                 <input type="radio" name="selector" id="display-all" value="All"
                        aria-label="Display all tasks" checked>
                 <label for="display-all">All</label>
@@ -79,7 +79,7 @@
                        aria-label="Display completed tasks">
                 <label for="display-completed">Completed</label>
             </span>
-            <input type="button" value="Clear completed" aria-label="Clear completed tasks">
+            <input type="button" value="Clear completed" title="Clear completed tasks">
         </footer>
     </main>
 </div>
