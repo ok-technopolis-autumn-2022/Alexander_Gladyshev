@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: #ffffff;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.todo-area {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.todo-area header {
+    font-size: 100px;
+    font-weight: 100;
+    color: #cccccc;
+}
+
+.todo-content {
+    background-color: #ffffff;
+    width: 562px;
+    height: 402px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-menu {
+    display: flex;
+    flex-direction: row;
+    height: 66px;
+    border-bottom: 2px solid #E8E8E8;
+}
+
+.select-all-todos-button {
+    background-image: url("../icons/select-all.png");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    background-size: 28px;
+    height: 100%;
+    width: 62px;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.todo-text-area {
+    padding-left: 5px;
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 21px;
+    color: #cccccc;
+    font-style: italic;
+    border: 0;
+}
+
+.todo-text-area:focus {
+    color: #CCCCCC;
+    font-style: normal;
+    font-weight: 500;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.task-list {
+    max-height: 293px;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+    border-bottom: 2px solid #E8E8E8;
+    cursor: pointer;
+    color: #888888;
+}
+
+.task-item:hover {
+    border: 1px solid #cccccc;
+}
+
+.task-item_view {
+    display: flex;
+    height: 40px;
+    padding: 12px;
+}
+
+/*fix меняет цвет не там где надо*/
+.task-item_view:hover label input[type=checkbox] {
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.task-item_view input[type=checkbox] {
+    flex-shrink: 0;
+    appearance: none;
+    align-self: center;
+    margin-right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.task-item_view input[type=checkbox]:checked {
+    background-image: url("../icons/completed.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: 1px solid #60c2b1;
+}
+
+.todo-text {
+    font-size: 24px;
+    font-weight: 300;
+    color: #666666;
+}
+
+.delete-todo {
+    background-image: url("../icons/close.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    height: 100%;
+    width: 40px;
+    margin-left: 10px;
+    border: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888888;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.task-selection {
+    display: flex;
+}
+
+.task-selection input[type=radio] {
+    appearance: none;
+    padding: 0 5px;
+}
+
+.footer_task_selection-label:hover {
+    text-shadow: 1px 1px 2px #D3D3D3;
+}
+
+input[type="radio"]:checked + .footer_task_selection-label {
+    border: 1px solid #EBDFDF;
+    border-radius: 8%;
+}
+
+.clear-completed {
+    border: 0;
+    color: #888888;
+}
+
+.clear-completed:hover {
+    text-shadow: 1px 1px 2px #D3D3D3;
+}
+
+.clear-completed:active {
+    border: 1px solid #EBDFDF;
+    border-radius: 8%;
+}
+
+
+
+
+
