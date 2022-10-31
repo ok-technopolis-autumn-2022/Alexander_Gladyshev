@@ -1,31 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
-
 * {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background-color: #ffffff;
 }
 
 body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
 
 .todo-area {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
 .todo-area header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     font-size: 100px;
     font-weight: 100;
     color: #cccccc;
 }
 
 .todo-content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
     background-color: #ffffff;
     width: 562px;
     height: 402px;
@@ -34,13 +39,14 @@ body {
 
 .top-menu {
     display: flex;
+    align-items: center;
     flex-direction: row;
     height: 66px;
     border-bottom: 2px solid #E8E8E8;
 }
 
 .select-all-todos-button {
-    background-image: url("../icons/select-all.png");
+    background-image: url("../icons/select-all.svg");
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;
@@ -50,6 +56,10 @@ body {
     width: 62px;
     margin: 1px;
     cursor: pointer;
+}
+
+.task-item_edit {
+    display: none;
 }
 
 .todo-text-area {
@@ -65,16 +75,18 @@ body {
 }
 
 .todo-text-area:focus {
-    color: #CCCCCC;
+    color: black;
     font-style: normal;
     font-weight: 500;
 }
 
-input:focus::-webkit-input-placeholder {
+.todo-text-area:focus::-webkit-input-placeholder {
     color: transparent;
 }
 
 .task-list {
+    display: flex;
+    flex-direction: column;
     max-height: 293px;
     overflow-y: auto;
     cursor: pointer;
@@ -83,23 +95,31 @@ input:focus::-webkit-input-placeholder {
 .task-item {
     display: flex;
     flex-direction: row;
+    align-items: center;
     height: 64px;
+    width: 100%;
     border-bottom: 2px solid #E8E8E8;
     cursor: pointer;
     color: #888888;
 }
 
 .task-item:hover {
-    border: 1px solid #cccccc;
+    background-color: #FAFAFA;
 }
 
 .task-item_view {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 40px;
+    width: 95%;
     padding: 12px;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    word-break: break-all;
 }
 
-/*fix меняет цвет не там где надо*/
 .task-item_view:hover label input[type=checkbox] {
     border: 1px solid #cccccc;
     cursor: pointer;
@@ -118,7 +138,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .task-item_view input[type=checkbox]:checked {
-    background-image: url("../icons/completed.png");
+    background-image: url("../icons/completed.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
@@ -129,49 +149,78 @@ input:focus::-webkit-input-placeholder {
     font-size: 24px;
     font-weight: 300;
     color: #666666;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    word-break: break-all;
 }
 
 .delete-todo {
-    background-image: url("../icons/close.png");
+    background-image: url("../icons/close.svg");
+    height: 28px;
+    width: 28px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px;
-    height: 100%;
-    width: 40px;
-    margin-left: 10px;
+    background-color: #ffffff;
+    box-sizing: content-box;
+    margin-left: 8px;
+    opacity: 0;
     border: 0;
+    cursor: pointer;
+}
+
+.task-item_view:hover .delete-todo {
+    opacity: 1;
 }
 
 footer {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     font-size: 14px;
     color: #888888;
-    height: 40px;
-    margin: 0 10px;
+    height: 50px;
+    margin: 10px;
 }
 
 .task-selection {
     display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 .task-selection input[type=radio] {
     appearance: none;
+    outline: none;
     padding: 0 5px;
 }
 
-.footer_task_selection-label:hover {
-    text-shadow: 1px 1px 2px #D3D3D3;
+.task-selection label {
+    display: flex;
+    justify-content: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    width: fit-content;
 }
 
-input[type="radio"]:checked + .footer_task_selection-label {
+footer input[type=radio]:focus + label {
+    outline: 1px solid black;
+}
+
+.task-selection input[type=radio]:checked + label {
     border: 1px solid #EBDFDF;
     border-radius: 8%;
 }
 
+.task-selection input[type=radio]:focus + label {
+    border-color: #cccccc;
+}
+
 .clear-completed {
+    padding: 6px;
     border: 0;
+    background-color: #ffffff;
     color: #888888;
 }
 
@@ -180,8 +229,7 @@ input[type="radio"]:checked + .footer_task_selection-label {
 }
 
 .clear-completed:active {
-    border: 1px solid #EBDFDF;
-    border-radius: 8%;
+    color: black;
 }
 
 

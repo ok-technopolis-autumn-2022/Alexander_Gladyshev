@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>TodoApp</title>
     <link rel="stylesheet" href="styles/stylesheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
 </head>
 <body>
 <div class="todo-area">
@@ -72,13 +73,13 @@
             <span class="task-selection" role="radiogroup" aria-label="task filter">
                 <input type="radio" name="selector" id="display-all" value="All"
                        aria-label="Display all tasks" checked>
-                <label class="footer_task_selection-label" for="display-all">All</label>
+                <label for="display-all">All</label>
                 <input type="radio" name="selector" id="display-active" value="Active"
                        aria-label="Display active tasks">
-                <label class="footer_task_selection-label" for="display-active">Active</label>
+                <label for="display-active">Active</label>
                 <input type="radio" name="selector" id="display-completed" value="Completed"
                        aria-label="Display completed tasks">
-                <label class="footer_task_selection-label" for="display-completed">Completed</label>
+                <label for="display-completed">Completed</label>
             </span>
             <input class="clear-completed" type="button" value="Clear completed" title="Clear completed tasks">
         </footer>
