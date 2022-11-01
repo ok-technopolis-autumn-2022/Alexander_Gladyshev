@@ -101,6 +101,8 @@ body {
     border-bottom: 2px solid #E8E8E8;
     cursor: pointer;
     color: #888888;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .task-item:hover {
@@ -117,7 +119,6 @@ body {
     font-size: 24px;
     color: #666;
     cursor: pointer;
-    word-break: break-all;
 }
 
 .task-item_view:hover label input[type=checkbox] {
@@ -152,7 +153,6 @@ body {
     align-items: center;
     width: 100%;
     cursor: pointer;
-    word-break: break-all;
 }
 
 .delete-todo {
@@ -170,6 +170,10 @@ body {
 }
 
 .task-item_view:hover .delete-todo {
+    opacity: 1;
+}
+
+.delete-todo:focus {
     opacity: 1;
 }
 
@@ -204,17 +208,13 @@ footer {
     width: fit-content;
 }
 
-footer input[type=radio]:focus + label {
-    outline: 1px solid black;
-}
-
 .task-selection input[type=radio]:checked + label {
-    border: 1px solid #EBDFDF;
-    border-radius: 8%;
+    outline: 1px solid #EBDFDF;
+    border-radius: 5px;
 }
 
 .task-selection input[type=radio]:focus + label {
-    border-color: #cccccc;
+    outline: 1px solid black;
 }
 
 .clear-completed {
