@@ -121,6 +121,11 @@ body {
     cursor: pointer;
 }
 
+.task-item_view label {
+    display: flex;
+    align-items: center;
+}
+
 .task-item_view:hover label input[type=checkbox] {
     border: 1px solid #cccccc;
     cursor: pointer;
@@ -147,6 +152,11 @@ body {
 }
 
 .todo-text {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
     font-size: 24px;
     font-weight: 300;
     color: #666666;
