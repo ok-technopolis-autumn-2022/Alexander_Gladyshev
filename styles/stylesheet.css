@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.todo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.todo-area header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    color: #cccccc;
+}
+
+.todo-content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #ffffff;
+    width: 562px;
+    height: 402px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 66px;
+    border-bottom: 2px solid #E8E8E8;
+}
+
+.select-all-todos-button {
+    background-image: url("../icons/select-all.svg");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    background-size: 28px;
+    height: 100%;
+    width: 62px;
+    margin: 1px;
+    cursor: pointer;
+}
+
+.task-item_edit {
+    display: none;
+}
+
+.todo-text-area {
+    padding-left: 5px;
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 21px;
+    color: #cccccc;
+    font-style: italic;
+    border: 0;
+}
+
+.todo-text-area:focus {
+    color: black;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.todo-text-area:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 293px;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    border-bottom: 2px solid #E8E8E8;
+    cursor: pointer;
+    color: #888888;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.task-item:hover {
+    background-color: #FAFAFA;
+}
+
+.task-item_view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    width: 95%;
+    padding: 12px;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+}
+
+.task-item_view label {
+    display: flex;
+    align-items: center;
+}
+
+.task-item_view:hover label input[type=checkbox] {
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.task-item_view input[type=checkbox] {
+    flex-shrink: 0;
+    appearance: none;
+    align-self: center;
+    margin-right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.task-item_view input[type=checkbox]:checked {
+    background-image: url("../icons/completed.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: 1px solid #60c2b1;
+}
+
+.todo-text {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+    font-size: 24px;
+    font-weight: 300;
+    color: #666666;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.delete-todo {
+    background-image: url("../icons/close.svg");
+    height: 28px;
+    width: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #ffffff;
+    box-sizing: content-box;
+    margin-left: 8px;
+    opacity: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.task-item_view:hover .delete-todo {
+    opacity: 1;
+}
+
+.delete-todo:focus {
+    opacity: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    color: #888888;
+    height: 50px;
+    margin: 10px;
+}
+
+.task-selection {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.task-selection input[type=radio] {
+    appearance: none;
+    outline: none;
+    padding: 0 5px;
+}
+
+.task-selection label {
+    display: flex;
+    justify-content: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.task-selection input[type=radio]:checked + label {
+    outline: 1px solid #EBDFDF;
+    border-radius: 5px;
+}
+
+.task-selection input[type=radio]:focus + label {
+    outline: 1px solid black;
+}
+
+.clear-completed {
+    padding: 6px;
+    border: 0;
+    background-color: #ffffff;
+    color: #888888;
+}
+
+.clear-completed:hover {
+    text-shadow: 1px 1px 2px #D3D3D3;
+}
+
+.clear-completed:active {
+    color: black;
+}
+
+
+
+
+
