@@ -1,0 +1,247 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font_roboto;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.todo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 100px;
+    font-weight: $font_size_small;
+    color: $color_gray_light;
+  }
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: $color_white;
+  width: 562px;
+  height: 402px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 66px;
+  border-bottom: $border-bottom;
+}
+
+.select-all-todos-button {
+  background-image: url("../icons/select-all.svg");
+  background-color: $color_white;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-size: 28px;
+  height: 100%;
+  width: 62px;
+  margin: 1px;
+  cursor: pointer;
+}
+
+.task-item_edit {
+  display: none;
+}
+
+.todo-text-area {
+  padding-left: 5px;
+  height: 100%;
+  width: 100%;
+  font-size: $font_size_normal;
+  font-weight: $font_size_normal;
+  line-height: 21px;
+  color: $color_gray_light;
+  font-style: italic;
+  border: 0;
+
+  &:focus {
+    color: black;
+    font-style: normal;
+    font-weight: $font_weight_large;
+
+    &::-webkit-input-placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 293px;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 64px;
+  width: 100%;
+  border-bottom: $border-bottom;
+  cursor: pointer;
+  color: $color_gray;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #FAFAFA;
+  }
+}
+
+.task-item_view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  width: 95%;
+  padding: 12px;
+  font-size: $font_size_normal;
+  color: $color_gray_dark;
+  cursor: pointer;
+
+  & label {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+    & label input[type=checkbox] {
+      border: 1px solid $color_gray_light;
+      cursor: pointer;
+    }
+
+    & .delete-todo {
+      opacity: 1;
+    }
+  }
+
+  & input[type=checkbox] {
+    flex-shrink: 0;
+    appearance: none;
+    align-self: center;
+    margin-right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
+    background-color: $color_white;
+
+    &:checked {
+      background-image: url("../icons/completed.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px;
+      border: 1px solid #60c2b1;
+    }
+  }
+}
+
+.todo-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+  font-size: $font_size_normal;
+  font-weight: $font_size_normal;
+  color: $color_gray_dark;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.delete-todo {
+  background-image: url("../icons/close.svg");
+  height: 28px;
+  width: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $color_white;
+  box-sizing: content-box;
+  margin-left: 8px;
+  opacity: 0;
+  border: 0;
+  cursor: pointer;
+
+  &:focus {
+    opacity: 1;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  font-size: $font_size_small;
+  color: $color_gray;
+  height: 50px;
+  margin: 10px;
+}
+
+.task-selection {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  & input[type=radio] {
+    appearance: none;
+    outline: none;
+    padding: 0 5px;
+
+    &:checked + label {
+      outline: 1px solid #EBDFDF;
+      border-radius: 5px;
+    }
+
+    &:focus + label {
+      outline: 1px solid black;
+    }
+  }
+
+  & label {
+    display: flex;
+    justify-content: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    width: fit-content;
+  }
+}
+
+.clear-completed {
+  padding: 6px;
+  border: 0;
+  background-color: $color_white;
+  color: $color_gray;
+
+  &:hover {
+    text-shadow: 1px 1px 2px #D3D3D3;
+  }
+
+  &:active {
+    color: black;
+  }
+}
