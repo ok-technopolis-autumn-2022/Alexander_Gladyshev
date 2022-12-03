@@ -32,14 +32,15 @@ body {
 .todo-content {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: hidden;
   background-color: $color_white;
   width: 562px;
-  height: 402px;
+  height: 396px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .top-menu {
+  min-height: 66px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -72,24 +73,20 @@ body {
   font-weight: $font_size_normal;
   line-height: 21px;
   color: $color_gray_light;
-  font-style: italic;
   border: 0;
 
   &:focus {
     color: black;
     font-style: normal;
     font-weight: $font_weight_large;
-
-    &::-webkit-input-placeholder {
-      color: transparent;
-    }
   }
 }
 
 .task-list {
   display: flex;
   flex-direction: column;
-  max-height: 293px;
+  min-height: 266px;
+  max-height: 266px;
   overflow-y: auto;
   cursor: pointer;
 }
@@ -98,8 +95,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 64px;
+  height: 66px;
   width: 100%;
+  min-height: 66px;
   border-bottom: $border-bottom;
   cursor: pointer;
   color: $color_gray;
@@ -125,6 +123,11 @@ body {
   & label {
     display: flex;
     align-items: center;
+
+    & input[type=checkbox]:checked + .todo-text{
+      color: $color_gray_light;
+      text-decoration: line-through 2px;
+    }
   }
 
   &:hover {
@@ -192,14 +195,16 @@ body {
 }
 
 footer {
+  border-top: 2px solid #E8E8E8;
+  min-height: 60px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
   font-size: $font_size_small;
   color: $color_gray;
-  height: 50px;
-  margin: 10px;
+  max-height: 60px;
+  padding: 0 10px;
 }
 
 .task-selection {

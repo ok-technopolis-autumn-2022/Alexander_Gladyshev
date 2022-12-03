@@ -5,6 +5,7 @@
     <title>TodoApp</title>
     <link rel="stylesheet" href="styles/stylesheet.scss"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
+    <script src="javascript/index.js" defer></script>
 </head>
 <body>
 <div class="todo-area">
@@ -12,64 +13,17 @@
         <h1>todos</h1>
     </header>
     <main class="todo-content">
-        <section class="top-menu">
+        <form action="#" method="post" class="top-menu">
             <input type="button" class="select-all-todos-button" title="Select all tasks">
-            <input type="text" class="todo-text-area" placeholder="What needs to be done?" aria-label="Add task to do">
-        </section>
-        <section class="task-list">
-            <ul>
-                <li class="task-item" role="listitem" aria-label="todo task">
-                    <div class="task-item_view">
-                        <label>
-                            <input type="checkbox" class="done-or-not" aria-label="Completed task: HTML">
-                            <span class="todo-text">HTML</span>
-                        </label>
-                        <input type="button" class="delete-todo" title="Delete task: HTML">
-                    </div>
-                    <div class="task-item_edit" hidden="hidden">
-                        <input type="text" class="task-item_input" value="HTML" aria-label="Edit task: HTML">
-                    </div>
-                </li>
-                <li class="task-item" role="listitem" aria-label="todo task">
-                    <div class="task-item_view">
-                        <label>
-                            <input type="checkbox" class="done-or-not" aria-label="Completed task: CSS">
-                            <span class="todo-text">CSS</span>
-                        </label>
-                        <input type="button" class="delete-todo" title="Delete task: CSS">
-                    </div>
-                    <div class="task-item_edit" hidden="hidden">
-                        <input type="text" class="task-item_input" value="CSS" aria-label="Edit task: CSS">
-                    </div>
-                </li>
-                <li class="task-item" role="listitem" aria-label="todo task">
-                    <div class="task-item_view">
-                        <label>
-                            <input type="checkbox" class="done-or-not" aria-label="Completed task: JS">
-                            <span class="todo-text">JS</span>
-                        </label>
-                        <input type="button" class="delete-todo" title="Delete task: JS">
-                    </div>
-                    <div class="task-item_edit" hidden="hidden">
-                        <input type="text" class="task-item_input" value="JS" aria-label="Edit task: JS">
-                    </div>
-                </li>
-                <li class="task-item" role="listitem" aria-label="todo task">
-                    <div class="task-item_view">
-                        <label>
-                            <input type="checkbox" class="done-or-not" aria-label="Completed task: JS tools">
-                            <span class="todo-text">JS tools</span>
-                        </label>
-                        <input type="button" class="delete-todo" title="Delete task: JS tools">
-                    </div>
-                    <div class="task-item_edit" hidden="hidden">
-                        <input type="text" class="task-item_input" value="JS tools" aria-label="Edit task: JS tools">
-                    </div>
-                </li>
+            <input type="text" class="todo-text-area" id="description" placeholder="What needs to be done?"
+                   aria-label="Add task to do">
+        </form>
+        <section class="task-list_section">
+            <ul class="task-list">
             </ul>
         </section>
         <footer>
-            <span class="tasks-left">3 items left</span>
+            <span class="tasks-left">0 items left</span>
             <span class="task-selection" role="radiogroup" aria-label="task filter">
                 <input type="radio" name="selector" id="display-all" value="All"
                        aria-label="Display all tasks" checked>
