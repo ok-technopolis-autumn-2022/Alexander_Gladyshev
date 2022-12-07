@@ -4,7 +4,8 @@ const tasksLeft = document.querySelector('.tasks-left');
 const clearCompleted = document.querySelector('.clear-completed');
 const ul = document.querySelector('.task-list');
 const form = document.querySelector('.top-menu');
-const selectOptionsRadio = document.getElementsByName('selector');
+const filterOptionsRadio = document.querySelector('.task-selection');
+const filterOptionsList = document.getElementsByName('selector');
 const displayMode = {
     ALL: "All",
     ACTIVE: "Active",
@@ -12,22 +13,23 @@ const displayMode = {
 }
 
 let taskList = [];
-let count = 0;
+let currentDisplayMode = displayMode.ALL;
 
 form.addEventListener('submit', addTask);
 selectAll.addEventListener('click', selectAllTasks);
 clearCompleted.addEventListener('click', deleteAllDone)
-for (let option of selectOptionsRadio) {
-    option.addEventListener('change', changeFilterOption);
-}
+todoSpace.addEventListener('click', onClickAction);
+filterOptionsRadio.addEventListener('click', changeFilterOption);
 
 function addTask(e) {
     e.preventDefault();
+    if (this.description.value.length === 0) {
+        return;
+    }
     const task = createTask(this.description.value);
     ul.appendChild(createLi(task));
     taskList.push(task);
-    count++;
-    tasksLeft.innerHTML = String(count + " items left");
+    refreshCounter();
     this.reset();
 }
 
@@ -40,19 +42,14 @@ function createTask(description) {
 }
 
 /**
- * @param task {{id: string | number, description: string}}
+ * @param task {{id: string | number, description: string, isActive: boolean}}
  * @return {HTMLLIElement | void}
  */
 function createLi(task) {
-    if (task.description.length === 0) {
-        return;
-    }
-
     const li = document.createElement('li');
     li.id = task.id;
     li.className = 'task-item';
     li.ariaLabel = 'todo task';
-
 
     const taskItemView = document.createElement('div');
     taskItemView.className = 'task-item_view';
@@ -77,41 +74,59 @@ function createLi(task) {
     button.className = 'delete-todo';
     button.title = 'Delete task: ' + task.description;
 
-    const deleteTask = () => {
-        count--;
-        taskList = taskList.filter(task => task.id !== Number(li.id));
-        tasksLeft.innerHTML = String(count + " items left");
-        button.removeEventListener('click', deleteTask)
-        li.remove();
-    }
-
-    button.addEventListener('click', deleteTask)
-    input.addEventListener('change', () => {
-        for (let task of taskList) {
-            if (task.id === Number(li.id)) {
-                task.isActive = !task.isActive;
-            }
-            changeFilterOption();
-        }
-    })
-
     label.append(input, span);
     taskItemView.append(label, button);
     li.appendChild(taskItemView);
     return li;
 }
 
+function onClickAction(e) {
+    const className = e.target.className;
+    const li = e.target.parentNode.parentNode.parentNode;
+    switch (className) {
+        case 'delete-todo':
+            deleteTask(li);
+            e.target.parentElement.remove();
+            break;
+        case 'done-or-not':
+            changeStatus(li);
+            changeFilterOption();
+            break;
+    }
+}
+
+function deleteTask(li) {
+    taskList = taskList.filter(task => task.id !== Number(li.id));
+    refreshCounter();
+    li.remove();
+}
+
+function changeStatus(li) {
+    let tsk = getTaskById(li);
+    tsk.isActive = !tsk.isActive;
+    changeFilterOption();
+}
+
+function getTaskById(li) {
+    for (let task of taskList) {
+        if (task.id === Number(li.id)) {
+            return task;
+        }
+    }
+    return null;
+}
+
 function changeFilterOption() {
-    for (let option of selectOptionsRadio) {
+    for (let option of filterOptionsList) {
         if (option.checked) {
             todoSpace.innerHTML = '';
-            count = 0;
-            filterByDisplayMode(option.value);
+            currentDisplayMode = option.value;
+            filterByDisplayMode();
         }
     }
 }
 
-function filter(task, currentDisplayMode) {
+function filter(task) {
     if (currentDisplayMode === displayMode.ACTIVE) {
         return task.isActive;
     } else if (currentDisplayMode === displayMode.COMPLETED) {
@@ -121,14 +136,13 @@ function filter(task, currentDisplayMode) {
     }
 }
 
-function filterByDisplayMode(currentDisplayMode) {
+function filterByDisplayMode() {
     for (let task of taskList) {
         if (filter(task, currentDisplayMode)) {
             ul.appendChild(createLi(task));
-            count++;
         }
     }
-    tasksLeft.innerHTML = String(count + " items left");
+    refreshCounter();
 }
 
 function selectAllTasks() {
@@ -153,4 +167,9 @@ function selectAllTasks() {
 function deleteAllDone() {
     taskList = taskList.filter(task => task.isActive);
     changeFilterOption();
+}
+
+function refreshCounter() {
+    let count = taskList.filter(task => filter(task)).length;
+    tasksLeft.innerHTML = count + " items left";
 }
